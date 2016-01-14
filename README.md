@@ -32,6 +32,8 @@ DarkPAN::Compare - Compare local Perl packages/versions with your DarkPAN
 Learn what Perl packages/versions are different in your environment compared to
 whats in your darkpan (pinto or orepan2 or whatever).
 
+This module comes with a handy script as well: [compare\_to\_darkpan](https://metacpan.org/pod/compare_to_darkpan)
+
 # LICENSE
 
 Copyright (C) Eric Johnson.
