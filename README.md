@@ -1,14 +1,36 @@
 # NAME
 
-DarkPAN::Compare - It's new $module
+DarkPAN::Compare - Compare local Perl packages/versions with your DarkPAN
 
 # SYNOPSIS
 
     use DarkPAN::Compare;
 
+    my $compare = DarkPAN::Compare->new(
+        darkpan_url => 'https://darkpan.mycompany.com'
+    );
+
+    # Do analysis
+    $compare->run;
+
+    # local modules which are not in your darkpan
+    # returns an arrayref of hashes
+    my $modules = $compare->extra_modules();  
+    for my $m (@$modules) {
+        print "$m->{name}: $m->{version}\n";
+    }
+
+    # local modules which have different versions than your darkpan
+    # returns an arrayref of hashes
+    my $modules = $compare->modules_with_version_mismatch(); 
+    for my $m (@$modules) {
+        print "$m->{name}: $m->{darkpan_version}\t$m->{local_version}\n";
+    }
+
 # DESCRIPTION
 
-DarkPAN::Compare is ...
+Learn what Perl packages/versions are different in your environment compared to
+whats in your darkpan (pinto or orepan2 or whatever).
 
 # LICENSE
 
