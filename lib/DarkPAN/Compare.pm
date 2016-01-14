@@ -61,7 +61,7 @@ sub darkpan {
 # returns: { $package => $version, ... }
 sub get_pkgs_from_local_environment {
     my $self = shift;
-    my $inst = ExtUtils::Installed->new;
+    my $inst = ExtUtils::Installed->new(skip_cwd => 1);
     my @modules = $inst->modules;
 
     my $local_modules;
