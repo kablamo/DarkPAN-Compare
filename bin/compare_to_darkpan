@@ -1,0 +1,24 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+use DarkPAN::Compare;
+
+die "usage: compare_to_darkpan <darkpan_url>\n" unless $ARGV[0];
+
+my $compare = DarkPAN::Compare->new(darkpan_url => $ARGV[0]);
+$compare->run;
+
+my $format = "%-45s %15s\n";
+printf $format, "Extra modules", "version";
+printf "-"x79 . "\n";
+printf $format, $_->{name}, $_->{version}
+    for @{ $compare->extra_modules };
+
+print "\n";
+
+$format = "%-45s %15s %15s\n";
+printf $format, "Modules with version mismatch", "darkpan version", "local version";
+printf "-"x79 . "\n";
+printf $format, $_->{name}, $_->{darkpan_version}, $_->{local_version}
+    for @{ $compare->modules_with_version_mismatch };
