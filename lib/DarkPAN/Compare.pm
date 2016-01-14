@@ -7,7 +7,7 @@ use HTTP::Tiny;
 use Parse::CPAN::Packages;
 use Module::Extract::Namespaces;
 
-our $VERSION = "0.02";
+our $VERSION = "0.03";
 
 has darkpan_url                   => (is => 'ro', required => 1);
 has missing_modules               => (is => 'rw', default => sub { [] });

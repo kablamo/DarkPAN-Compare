@@ -2,6 +2,9 @@ Revision history for Perl extension DarkPAN-Compare
 
 {{$NEXT}}
 
+0.03 2016-01-14T19:06:22Z
+    - Don't look for modules in the cwd.
+
 0.02 2016-01-14T03:50:13Z
     - Added pod to bin/compare_to_darkpan script
 
